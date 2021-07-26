@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <style type="text/css">
+
+    @page {
+      size: 1024px 1340px;
+      margin: 0cm 0cm 0cm 0cm;
+      -fs-flow-top: "header";
+      -fs-flow-bottom: "footer";
+
+      /*@bottom-right {*/
+      /*  content: "Seite " counter(page) " von " counter(pages);*/
+      /*  font-size: 9px;*/
+      /*}*/
+      /*@bottom-left {*/
+      /*  content: element(footer);*/
+      /*  font-size: 9px;*/
+      /*}*/
+      /*@top-left {*/
+      /*  font-size: 9px;*/
+      /*  content: element(header);*/
+      /*}*/
+    }
+
+    .body {
+      width: 1024px;
+      height: 1340px;
+      margin: auto;
+      font-family: Noto Sans KR, sans-serif !important;
+      padding-top: 7px;
+    }
+
+    .body .patientTable {
+      width: 507px;
+      border-spacing: 0px;
+      margin-bottom: 10px;
+      margin-top: 5px;
+      font-size: 13pt;
+    }
+
+    .body .patientTable td {
+      text-align: right;
+      padding-right: 10px;
+      background: #f2f2f2;
+      border: 1px solid #f2f2f2;
+    }
+
+    .body .patientTable th {
+      text-align: left;
+      padding-left: 10px;
+      border: 1px solid #f2f2f2;
+      border-right: hidden !important;
+      font-weight: normal;
+    }
+
+    .body .sectionTitle {
+      background: #2EA7E0;
+      margin-bottom: 10px;
+      text-align: center;
+      height: 29pt;
+    }
+
+    .body .sectionTitle p {
+      color: #FFFFFF;
+      font-size: 19pt;
+      font-weight: bold;
+      margin: 0px !important;
+    }
+
+    .body .contentBackgroundTable {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 0px;
+      border-spacing: 0px;
+      padding-bottom: 15px;
+      width: 507px;
+    }
+
+    .body .contentBackgroundTable td {
+      text-align: right;
+      padding-right: 10px;
+      background: #f2f2f2;
+      border: 1px solid #f2f2f2;
+      font-size: 13pt;
+    }
+
+    .body .contentBackgroundTable th {
+      text-align: left;
+      padding-left: 10px;
+      border: 1px solid #f2f2f2;
+      border-right: hidden !important;
+      font-size: 13pt;
+      font-weight: normal;
+    }
+
+    .body .contentSymptomTable {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 0px;
+      border-spacing: 0px;
+      padding-bottom: 15px;
+      float: left;
+      height: 160px;
+      width: 507px;
+      font-size: 13pt;
+    }
+
+    .body .contentSymptomTable td {
+      padding-left: 10px;
+      background: #f2f2f2;
+      width: 300px;
+      border: 1px solid #f2f2f2;
+      font-size: 13pt;
+    }
+
+    .body .contentSymptomTable th {
+      text-align: left;
+      padding-left: 10px;
+      width: 200px;
+      border: 1px solid #f2f2f2;
+      border-right: hidden !important;
+      font-weight: normal;
+    }
+
+    .body .interpretation {
+      width: 100%;
+      height: 400px;
+      position: relative;
+    }
+
+    .body .symptom {
+      width: 100%;
+      height: 160px;
+      margin-bottom: 5px;
+      border: 1px solid;
+    }
+
+    .body .symptomTable {
+      width: 100%;
+      height: 140px;
+      margin-top: 5px;
+      font-size: 14pt;
+    }
+
+    .body .symptomTable td {
+      padding-right: 20px;
+    }
+
+    .body .symptomPage {
+      width: 1014px;
+      margin-left: 5px;
+      height: 1200px;
+      border: 1px solid;
+    }
+
+    .body .symptomPageTable {
+      font-size: 14pt;
+      padding-left: 20px;
+      padding-top: 5px;
+    }
+
+    .body .symptomPageTable td {
+      padding-right: 80px;
+    }
+
+    .body .title {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .body .ppgChart {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 10px;
+    }
+
+    #selfCheckMaximumHrEcgChart5 {
+      width: 32.5% !important
+    }
+
+    #selfCheckMaximumHrPpgChart5 {
+      width: 32.5% !important
+    }
+
+    #selfCheckMinimumHrEcgChart5 {
+      width: 32.5% !important
+    }
+
+    #selfCheckMinimumHrPpgChart5 {
+      width: 32.5% !important
+    }
+
+    .body .selfcheckPpgChart {
+      width: 100%;
+      height: 170px;
+    }
+
+    .body .ecgChart {
+      width: 100%;
+      height: 261px;
+    }
+
+    .body .good {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #6397b9;
+    }
+
+    .body .poor {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #d3d3d3;
+    }
+
+    .body .horizon {
+      width: 100%;
+      border-bottom: 1px solid #b3b3b3;
+      margin-top: 1px;
+      margin-bottom: 5px;
+    }
+
+    .selfCheck {
+      padding-top: 4px;
+      background-color: #f2f2f2;
+      padding-left: 10px;
+    }
+
+    .selfCheck .nsr {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #e6c84d;
+    }
+
+    .selfCheck .afEpilsodeY {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #ac4b53;
+    }
+
+    .backgroundcheck {
+      padding-top: 4px;
+      padding-left: 10px;
+      margin-top: 5px;
+      background-color: #f2f2f2;
+    }
+
+    .body .timeLineTitle {
+      text-align: center;
+      font-size: 14pt;
+      margin-top: 10px;
+      width: 8%;
+      height: 60px;
+      float: left;
+      display: inline-block;
+    }
+
+    .body .timeLineChart {
+      margin-top: 10px;
+      width: 92%;
+      height: 90px;
+    }
+
+    .body .verticalLineTime1 {
+      display: inline-block;
+      font-size: 14pt;
+      position: absolute;
+      left: 74px;
+      top: 145px;
+      z-index: 9999;
+    }
+
+    .body .verticalLineTime2 {
+      display: inline-block;
+      font-size: 14pt;
+      position: absolute;
+      left: 302px;
+      top: 145px;
+      z-index: 9999;
+    }
+
+    .body .verticalLineTime3 {
+      display: inline-block;
+      font-size: 14pt;
+      position: absolute;
+      left: 533px;
+      top: 145px;
+      z-index: 9999;
+    }
+
+    .body .verticalLineTime4 {
+      display: inline-block;
+      font-size: 14pt;
+      position: absolute;
+      left: 761px;
+      top: 145px;
+      z-index: 9999;
+    }
+
+    .body .verticalLineTime5 {
+      display: inline-block;
+      font-size: 14pt;
+      position: absolute;
+      left: 975px;
+      top: 145px;
+      z-index: 9999;
+    }
+
+    .body .verticalLine1 {
+      display: inline-block;
+      border-left: 1px dashed;
+      border-color: #878787;
+      position: absolute;
+      left: 95px;
+      top: 175px;
+      height: 1090px;
+      z-index: 9999;
+    }
+
+    .body .verticalLine2 {
+      display: inline-block;
+      border-left: 1px dashed;
+      border-color: #878787;
+      position: absolute;
+      left: 326px;
+      top: 175px;
+      height: 1090px;
+      z-index: 9999;
+    }
+
+    .body .verticalLine3 {
+      display: inline-block;
+      border-left: 1px dashed;
+      border-color: #878787;
+      position: absolute;
+      left: 555px;
+      top: 175px;
+      height: 1090px;
+      z-index: 9999;
+    }
+
+    .body .verticalLine4 {
+      display: inline-block;
+      border-left: 1px dashed;
+      border-color: #878787;
+      position: absolute;
+      left: 783px;
+      top: 175px;
+      height: 1090px;
+      z-index: 9999;
+    }
+
+    .body .verticalLine5 {
+      display: inline-block;
+      border-left: 1px dashed;
+      border-color: #878787;
+      position: absolute;
+      left: 1012px;
+      top: 175px;
+      height: 1090px;
+      z-index: 9999;
+    }
+
+    .body .dynamicTimelineChartArea1 {
+      position: relative;
+      width: 100%;
+      height: 1338px;
+      display: block;
+      padding-top: 7px;
+    }
+
+    .body .dynamicTimelineChartArea2 {
+      position: relative;
+      width: 100%;
+      height: 1338px;
+      display: block;
+      padding-top: 7px;
+    }
+
+    .body .dynamicTimelineChartArea3 {
+      position: relative;
+      width: 100%;
+      height: 1338px;
+      display: block;
+      padding-top: 7px;
+    }
+
+    .body .dynamicBgMaximumHrChartArea {
+      position: relative;
+    }
+
+    .body .dynamicBgMinimumHrChartArea {
+      position: relative;
+    }
+
+    .body .dynamicMaximumHrSelfCheckChartArea1 {
+      width: 100%;
+      height: 1340px;
+      padding-top: 5px;
+    }
+
+    .body .dynamicMaximumHrSelfCheckChartArea2 {
+      width: 100%;
+      height: 1340px;
+      padding-top: 5px;
+    }
+
+    .body .dynamicMinimumHrSelfCheckChartArea1 {
+      width: 100%;
+      height: 1340px;
+      padding-top: 5px;
+    }
+
+    .body .dynamicMinimumHrSelfCheckChartArea2 {
+      width: 100%;
+      height: 1340px;
+      padding-top: 5px;
+    }
+
+    .timelineColor_analyzableN {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #27415c;
+    }
+
+    .timelineColor_analyzableY {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #b8e0e0;
+    }
+
+    .timelineColor_noData {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #fff;
+      border: solid 1px #111;
+    }
+
+    .timelineColor_afEplisodeY {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #ac4b53;
+    }
+
+    .timelineColor_selfcheckY {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #3c62d2;
+    }
+
+    .ipBpColor {
+      margin-right: 5px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #ac4b53;
+    }
+
+    .hrMinColor {
+      margin-right: 5px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #99c9e0;
+    }
+
+    .hrAverageColor {
+      margin-right: 5px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #659ec2;
+    }
+
+    .hrMaxColor {
+      margin-right: 5px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #335375;
+    }
+
+    .body .hrTime {
+      font-size: 13pt;
+      margin-top: 20px;
+      width: 8%;
+      height: 120px;
+      float: left;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .body .hrChart {
+      margin-top: 30px;
+      width: 92%;
+      height: 130px;
+    }
+
+    .body .hrCharTimeline1 {
+      display: inline-block;
+      position: absolute;
+      left: 110px;
+    }
+
+    .body .hrCharTimeline2 {
+      display: inline-block;
+      position: absolute;
+      left: 545px;
+    }
+
+    .body .hrCharTimeline3 {
+      display: inline-block;
+      position: absolute;
+      left: 980px;
+    }
+
+    .afdataBody {
+      width: 1024px;
+      margin: auto;
+      font-family: Noto Sans KR, sans-serif !important;
+    }
+
+    .afdataBody .sectionTitle {
+      background: #2ea7e0;
+      margin-bottom: 10px;
+      vertical-align: middle;
+      text-align: center;
+      height: 29pt;
+    }
+
+    .afdataBody .sectionTitle p {
+      color: #ffffff;
+      margin: 0px;
+      font-size: 18pt;
+      font-weight: bold;
+      padding-top: 2px;
+      margin-bottom: 30px;
+    }
+
+    .afdataBody .patientTable {
+      border: 0px;
+      width: 50%;
+    }
+
+    .afdataBody .patientTable td {
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    .afdataBody .patientTable th {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .afdataBody .symptom {
+      width: 100%;
+      height: 145px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      border: 1px solid;
+    }
+
+    .afdataBody .symptomTable {
+      width: 100%;
+      height: 140px;
+      font-size: 14pt;
+    }
+
+    .afdataBody .symptomTable td {
+      padding-right: 20px;
+    }
+
+    .afdataBody .episode {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .afdataBody .episodeTable {
+      width: 100%;
+      height: 77px;
+      font-size: 15pt;
+    }
+
+    .symptomSpan {
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .afdataBody .title {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .afdataBody .ppgChart {
+      width: 100%;
+      height: 140px;
+    }
+
+    .afdataBody .ecgChart {
+      width: 100%;
+      height: 230px;
+    }
+
+    .afdataBody [class *= "ppgChart5"] {
+      width: 32.5% !important
+    }
+
+    .afdataBody [class *= "ecgChart5"] {
+      width: 32.5% !important
+    }
+
+    .afdataBody .bgPpgChart {
+      width: 100%;
+      height: 270px;
+      margin-bottom: 20px;
+    }
+
+    .afdataBody .good {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #2babf0;
+    }
+
+    .afdataBody .poor {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background-color: #bfbfbf
+    }
+
+    .afdataBody .horizon {
+      width: 100%;
+      border-bottom: 1px solid #b3b3b3;
+      margin-bottom: 5px;
+      margin-top: 1px;
+    }
+
+    .dynamicChartAreaSub {
+      padding-top: 7px;
+    }
+
+
+  </style>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js">
+  </script>
+  <script type="text/javascript" src="https://www.cartcardiotracker.com/js/canvasjs-2.3.2/canvasjs.min.js">
+  </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js">
+  </script>
+  <script type="text/javascript">
+    //<![CDATA[
+
+    var REPORT_HEADER = {
+      makeHeader: function (divName) {
+        var html = '<div style="width: 1024px; height: 45pt; margin: auto; border-bottom: 2px solid #2ea7e0;">'
+            + '<table style="width: 100%; height: 100%;">'
+            + '<colgroup><col style="width:30%"><col style="width:40%"><col style="width:30%"></colgroup>'
+            + '<tbody>'
+            + '<tr>'
+            + '<td></td>'
+            + '<td style="vertical-align:middle; text-align: center; font-size: 24pt; font-weight: bold;">'
+            + 'CART-I Report'
+            + '</td>'
+            + '<td style="text-align: right; font-size: 11pt; color: #595959; padding-right: 15pt;">수현 박 / Female / 10<br>10-Jun-2021~09-Jul-2021</td>'
+            + '</tr>'
+            + '</tbody>'
+            + '</table>'
+            + '</div>';
+        $("#" + divName).before(html);
+      }
+    }
+
+    var pageNum = 1;
+    var REPORT_FOOTER = {
+      makeFooter: function (divName) {
+        var html = '<div style="width: 1024px; height: 30pt; margin-bottom: 5px; margin: auto; border-top: 2px solid #2ea7e0;">'
+            + '<div style="width: 100%; font-size: 9pt; color: #595959; line-height: 10pt;">'
+            + '<img alt="Logo Image" style="width: 60pt; height: 15pt; margin-top: 12.5px; margin-left: 20pt; margin-right: 16pt; float:left;" src="https://skylabs-upload-picture.s3.ap-northeast-2.amazonaws.com/pdf-report-skylabs-logo.png">'
+            + '<span style="float: left;margin-top: 6pt;">Sky Labs, Inc.<br> Confidential patient information</span>'
+            + '<span class="totalPageNum" style="float: right; margin-top: 15pt; margin-right: 5pt;"></span>'
+            + '<span style="float: right;margin-top: 15pt;">' + pageNum + '/</span>'
+            + '<span style="float: right;margin-top: 15pt; margin-right: 45pt;">Version : 2021-03</span>'
+            + '</div>'
+            + '</div>';
+
+        $("#" + divName).after(html);
+
+        pageNum++;
+      }
+    }
+
+    function convertCanvasToImg(chartName, className, style) {
+      $("#" + chartName).after(
+          '<img '
+          + 'class="' + className + '" '
+          + 'id="' + chartName + 'Img" '
+          + 'src="' + $("#" + chartName + " .canvasjs-chart-container .canvasjs-chart-canvas")[1].toDataURL()
+          + '" style="' + style + '">')
+      // $("#" + chartName).remove();
+      // $("#" +chartName + "Img").prop("id", chartName);
+    }
+
+    var irregularPulseBurdenChart;
+    var afBurdenChartData = [];
+    var afBurdenAndHrAfBurdenChartData = '[{"localDt":"10-Jun-2021","afBurden":"0.0"},{"localDt":"11-Jun-2021","afBurden":"0.4"},{"localDt":"14-Jun-2021","afBurden":"1.1"},{"localDt":"15-Jun-2021","afBurden":"3.1"},{"localDt":"16-Jun-2021","afBurden":"2.3"},{"localDt":"17-Jun-2021","afBurden":"0.5"},{"localDt":"18-Jun-2021","afBurden":"0.5"},{"localDt":"21-Jun-2021","afBurden":"0.0"},{"localDt":"22-Jun-2021","afBurden":"7.1"},{"localDt":"23-Jun-2021","afBurden":"0.0"},{"localDt":"24-Jun-2021","afBurden":"0.0"},{"localDt":"25-Jun-2021","afBurden":"1.0"},{"localDt":"28-Jun-2021","afBurden":"0.0"},{"localDt":"29-Jun-2021","afBurden":"4.3"},{"localDt":"30-Jun-2021","afBurden":"0.0"},{"localDt":"01-Jul-2021","afBurden":"2.3"},{"localDt":"02-Jul-2021","afBurden":"3.6"},{"localDt":"03-Jul-2021","afBurden":"10.0"},{"localDt":"04-Jul-2021","afBurden":"9.2"},{"localDt":"05-Jul-2021","afBurden":"0.7"},{"localDt":"06-Jul-2021","afBurden":"0.3"},{"localDt":"07-Jul-2021","afBurden":"1.6"},{"localDt":"08-Jul-2021","afBurden":"0.0"},{"localDt":"09-Jul-2021","afBurden":"0.0"}]';
+    var afBurdenChartDataJson = JSON.parse(afBurdenAndHrAfBurdenChartData);
+
+    function fn_afBurdenChartData() {
+      for (var i = 0; i < afBurdenChartDataJson.length; i++) {
+        var listData = afBurdenChartDataJson[i];
+
+        afBurdenChartData.push({y: Number(listData.afBurden), label: listData.localDt, x: i + 1, indexLabel: "{y}"});
+      }
+
+      return afBurdenChartData;
+    }
+
+    window.onload = function () {
+      /* 데이터가 없는 영역 삭제 */
+      /* Header, Footer 그리기 */
+      REPORT_HEADER.makeHeader('userStatisticsHeader');
+      REPORT_FOOTER.makeFooter('userStatisticsFooter');
+
+      REPORT_HEADER.makeHeader('afStatisticsHeader');
+      REPORT_FOOTER.makeFooter('afStatisticsFooter');
+
+      irregularPulseBurdenChart = new CanvasJS.Chart("irregularPulseBurdenChart", {
+        axisY: {
+          tickLength: 0,
+          labelFontSize: 13,
+          gridThickness: 1,
+          lineThickness: 0,
+          interval: 10
+        },
+        axisX: {
+          tickThickness: 0,
+          labelFormatter: function () {
+            return " ";
+          }
+        },
+        dataPointWidth: 15,
+        toolTip: {
+          shared: true,
+        },
+        data: [{
+          type: "column",
+          color: "#ac4b53",
+          dataPoints: []
+        }]
+      });
+      irregularPulseBurdenChart.options.data[0].dataPoints = fn_afBurdenChartData();
+      irregularPulseBurdenChart.render();
+      convertCanvasToImg("irregularPulseBurdenChart", "", $("#irregularPulseBurdenChart").attr("style"))
+    }
+
+    //]]>
+  </script>
+</head>
+<body style="margin:0px;">
+<div style="width: 1024px; height: 45pt; margin: auto; border-bottom: 2px solid #2ea7e0;">
+  <table style="width: 100%; height: 100%;">
+    <colgroup>
+      <col style="width:30%"/>
+      <col style="width:40%"/>
+      <col style="width:30%"/>
+    </colgroup>
+    <tbody>
+    <tr>
+      <td/>
+      <td style="vertical-align:middle; text-align: center; font-size: 24pt; font-weight: bold;">
+        CART-I Report
+      </td>
+      <td style="text-align: right; font-size: 11pt; color: #595959; padding-right: 15pt;">
+        수현 박 / Female / 10
+        <br/>
+        10-Jun-2021~09-Jul-2021
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div id="userStatisticsHeader">
+</div>
+<div class="body">
+  <!-- Table -->
+  <div>
+    <table class="patientTable" style="float: left; margin-right: 10px;">
+      <tbody>
+      <tr>
+        <td style="width: 141px;">
+          Patient Name
+        </td>
+        <th style="border-top: hidden;">
+          수현 박
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Patient E-mail
+        </td>
+        <th>
+          suhyeon.park@i-skylabs.com
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Age
+        </td>
+        <th>
+          10
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Gender
+        </td>
+        <th style="border-bottom: hidden;">
+          Female
+        </th>
+      </tr>
+      </tbody>
+    </table>
+    <table class="patientTable">
+      <tbody>
+      <tr>
+        <td style="width: 228px;">
+          Observation Period
+        </td>
+        <th style="border-top: hidden;">
+          10-Jun-2021~09-Jul-2021
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Observation Time
+        </td>
+        <th>
+          30days
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Wearing Time
+        </td>
+        <th>
+          15days 12hrs 10min 30sec
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Analyzable Time
+        </td>
+        <th>
+          6days 18hrs 41min 30sec
+        </th>
+      </tr>
+      <tr>
+        <td>
+          (Analyzable/Wearing)
+        </td>
+        <th style="border-bottom: hidden;">
+          43.71%
+        </th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Background-check Statics -->
+  <div>
+    <div class="sectionTitle">
+      <p>
+        <b>
+          Background-check Statics
+        </b>
+      </p>
+    </div>
+    <!-- Irregular Pulse Burden Table -->
+    <table class="contentBackgroundTable" style="height: 175px; float: left; margin-right: 10px;">
+      <tbody>
+      <tr>
+        <th colspan="2" style="padding-left: 15px; padding-bottom: 20px; font-size: 17pt; font-weight: bold; border-top: hidden; border-bottom: hidden; border-left: hidden; ">
+          Irregular Pulse Burden
+
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Average
+        </td>
+        <th style="border-top: hidden;">
+          1.81% (5 weeks)
+        </th>
+      </tr>
+      <tr>
+        <td style="width: 141px;">
+          1st week
+        </td>
+        <th>
+          1.48% (10-Jun-2021~16-Jun-2021)
+        </th>
+      </tr>
+      <tr>
+        <td>
+          2nd week
+        </td>
+        <th>
+          1.9% (17-Jun-2021~23-Jun-2021)
+        </th>
+      </tr>
+      <tr>
+        <td>
+          3rd week
+        </td>
+        <th>
+          1.18% (24-Jun-2021~30-Jun-2021)
+        </th>
+      </tr>
+      <tr>
+        <td>
+          4th week
+        </td>
+        <th>
+          4.47% (01-Jul-2021~07-Jul-2021)
+        </th>
+      </tr>
+      <tr>
+        <td>
+          5th week
+        </td>
+        <th id="contentBackgroundTable5thWeek" style="border-bottom: hidden;">
+        </th>
+      </tr>
+      </tbody>
+    </table>
+    <!-- Heart Rates Table -->
+    <table class="contentBackgroundTable" style="float: right; min-height: 230px;">
+      <tbody>
+      <tr>
+        <th colspan="2" style="padding-left: 15px; padding-bottom: 20px; font-size: 17pt; font-weight: bold; border-top: hidden; border-bottom: hidden; border-left: hidden; ">
+          Heart Rates
+        </th>
+      </tr>
+      <tr valign="top">
+        <td style="width: 228px;">
+          Max
+        </td>
+        <th style="border-top: hidden;">
+          188
+          <br/>
+
+          10-Jun-2021 20:10:27
+
+        </th>
+      </tr>
+      <tr valign="top">
+        <td>
+          3rd quartile
+        </td>
+        <th>
+          63
+        </th>
+      </tr>
+      <tr valign="top">
+        <td>
+          Median
+        </td>
+        <th>
+          57
+        </th>
+      </tr>
+      <tr valign="top">
+        <td>
+          1st quartile
+        </td>
+        <th>
+          54
+        </th>
+      </tr>
+      <tr valign="top">
+        <td>
+          Min
+        </td>
+        <th style="border-bottom: hidden;">
+          32
+          <br/>
+
+          23-Jun-2021 01:23:34
+
+        </th>
+      </tr>
+      </tbody>
+    </table>
+    <!-- Irregular Pulse Episode Table -->
+    <table class="contentBackgroundTable" style="height: 175px; margin-right: 10px;">
+      <tbody>
+      <tr>
+        <th colspan="2" style="padding-left: 15px; padding-bottom: 20px; font-size: 17pt; font-weight: bold; border-top: hidden; border-bottom: hidden; border-left: hidden;">
+          Irregular Pulse Episode
+
+        </th>
+      </tr>
+      <tr>
+        <td style="width: 141px;">
+          Longest
+        </td>
+        <th style="border-top: hidden;">
+          18min 30sec (22-Jun-2021 02:47:28)
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Median
+        </td>
+        <th>
+          3min (07-Jul-2021 03:42:30)
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Shortest
+        </td>
+        <th>
+          1min 30sec (06-Jul-2021 00:45:10)
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Average
+        </td>
+        <th style="border-bottom: hidden;">
+          4min 13sec (Standard deviation 206.0)
+        </th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Patient symptom -->
+  <div style="height: 210px;">
+    <div class="sectionTitle">
+      <p>
+        <b>
+          Patient Symptom
+        </b>
+      </p>
+    </div>
+    <!-- Table -->
+    <div id="patientSymptomTable">
+    </div>
+  </div>
+  <!-- Interpretation -->
+  <div>
+    <div class="sectionTitle" style="margin-top: 25px;">
+      <p>
+        <b>
+          Interpretation
+        </b>
+      </p>
+    </div>
+    <div class="interpretation">
+      <p style="position: absolute; bottom: 0px; right: 30px; font-size: 20px;">
+        Signed : ________________________ Date : ________________________
+      </p>
+    </div>
+  </div>
+</div>
+<div id="userStatisticsFooter">
+</div>
+<div style="width: 1024px; height: 30pt; margin-bottom: 5px; margin: auto; border-top: 2px solid #2ea7e0;">
+  <div style="width: 100%; font-size: 9pt; color: #595959; line-height: 10pt;">
+    <img alt="Logo Image" style="width: 60pt; height: 15pt; margin-top: 12.5px; margin-left: 20pt; margin-right: 16pt; float:left;"
+         src="https://skylabs-upload-picture.s3.ap-northeast-2.amazonaws.com/pdf-report-skylabs-logo.png"/>
+    <span style="float: left;margin-top: 6pt;">
+          Sky Labs, Inc.
+          <br/>
+           Confidential patient information
+        </span>
+    <span class="totalPageNum" style="float: right; margin-top: 15pt; margin-right: 5pt;">
+        </span>
+    <span style="float: right;margin-top: 15pt;">
+          1/
+        </span>
+    <span style="float: right;margin-top: 15pt; margin-right: 45pt;">
+          Version : 2021-03
+        </span>
+  </div>
+</div>
+<div style="width: 1024px; height: 45pt; margin: auto; border-bottom: 2px solid #2ea7e0;">
+  <table style="width: 100%; height: 100%;">
+    <colgroup>
+      <col style="width:30%"/>
+      <col style="width:40%"/>
+      <col style="width:30%"/>
+    </colgroup>
+    <tbody>
+    <tr>
+      <td/>
+      <td style="vertical-align:middle; text-align: center; font-size: 24pt; font-weight: bold;">
+        CART-I Report
+      </td>
+      <td style="text-align: right; font-size: 11pt; color: #595959; padding-right: 15pt;">
+        수현 박 / Female / 10
+        <br/>
+        10-Jun-2021~09-Jul-2021
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div id="afStatisticsHeader">
+</div>
+<div class="body">
+  <!-- Irregular Pulse Burden & HR -->
+  <div style="margin-bottom: 10px;">
+    <div class="sectionTitle">
+      <p>
+        <b>
+          Irregular Pulse Burden &amp; HR
+        </b>
+      </p>
+    </div>
+    <div style="display: inline-block; width: 88px; height: 75px; text-align: center; text-decoration: none; padding: 4px 16px; background-color: #ac4b53; color: #fff; border-radius: 20px;">
+          <span style="font-size: 13pt">
+             IP Burden
+          </span>
+      <br/>
+      <span style="font-weight: bold; font-size: 17pt">
+            2.45%
+          </span>
+      <br/>
+      <span style="font-size: 13pt">
+             (4 weeks)
+          </span>
+    </div>
+    <div style="display: inline-block; float: right; text-align: right; margin-top: 50px;">
+          <span class="ipBpColor">
+          </span>
+      <span class="mr-4" style="font-size: 14pt;">
+              IP Burden
+          </span>
+      <span class="hrMinColor" style="margin-left: 40px;">
+          </span>
+      <span class="mr-4" style="font-size: 14pt;">
+              HR Min
+          </span>
+      <span class="hrAverageColor" style="margin-left: 40px;">
+          </span>
+      <span class="mr-4" style="font-size: 14pt;">
+              HR Average
+          </span>
+      <span class="hrMaxColor" style="margin-left: 40px;">
+          </span>
+      <span class="mr-4" style="font-size: 14pt;">
+              HR Max
+          </span>
+    </div>
+    <div>
+      <div style="float: left; font-size: 14pt; width: 10%; display: inline-block; margin-top: 20px;">
+            <span>
+              Irregular
+            </span>
+        <br/>
+        <span>
+              Pulse
+            </span>
+        <br/>
+        <span>
+              Burden
+            </span>
+        <br/>
+        <span>
+              [%]
+            </span>
+      </div>
+      <img id=""
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA5oAAACWCAYAAAC/3/dtAAAavklEQVR4Xu3dX4gVWXoA8LPZJLRZSNr1YREF6U7EMPiQCPGl5ymEHUhCM8yE+OAsA5uMhqx2WmjyMtr+XRhCg51WQpxkHpbRhw67wyCbYMuQfVBfDEwWVoYIia6wi8yDYPIwSpLNhFO7t/eqfW9V3a5b99StXz85019Vfef3na5b361/X/j8888/D34IECBAgAABAgQIECBAgEBFAl/QaFYkaTUECBAgQIAAAQIECBAgkAloNE0EAgQIECBAgAABAgQIEKhUQKNZKaeVESBAgAABAgQIECBAgIBG0xwgQIAAAQIECBAgQIAAgUoFNmw0z549GxYXF7MNvfLKK+HKlSth27Zt2X8/efIkHDt2LFy6dCn778uXL4eDBw9WmpSVESBAgAABAgQIECBAgEBzBV5oNB89ehTefvvt8M1vfjNrLmOTeePGjXD+/PmwZcuWEJvQ+HPixIkQY2OTGf89MzPTXAWZEyBAgAABAgQIECBAgEBlArmXzt66dSu8//77WaP52WefhSNHjoRTp06FPXv2ZEl0N56VZWVFBAgQIECAAAECBAgQINBYgdxGs7uRvHv3btZkXrx4cf1S2njG8969e9lZTT8ECBAgQIAAAQIECBAgQKBvoxnPZn7jG98Iq6ur2RnMXo1m96W1SAkQIECAAAECBAgQIECg3QI9G83O/Zdf+9rX1h/2U/aM5uHDh9uta/QECBAgQIAAAQIECBAYI4HOQ2HzhtSz0YyXzP74xz9efwhQXFFsPje6R3N6etqTZ/Ok/Z4AAQIECBAgQIAAAQItEdiw0Xz+ktmORefVJjt27MjuyYxnOOfm5sLKysr6w4Fa4maYBAgQIECAAAECBAgQINBDYMPXm8RXlqytrT2zSOd9mZ1Laju/v3nzplebmF4ECBAgQIAAAQIECBAgsC6Q+9RZVgQIECBAgAABAgQIECBAoIyARrOMllgCBAgQIECAAAECBAgQyBXQaOYSCSBAgAABAgQIECBAgACBMgIazTJaYgkQIECAAAECBAgQIEAgV0CjmUskgAABAgQIECBAgAABAgTKCGg0y2iJJUCAAAECBAgQIECAAIFcAY1mLpEAAgQIECBAgAABAgQIECgjoNEsoyWWAAECBAgQIECAAAECBHIFNJq5RAIIECBAgAABAgQIECBAoIyARrOMllgCBAgQIECAAAECBAgQyBXQaOYSCSBAgAABAgQIECBAgACBMgIazTJaYgkQIECAAAECBAgQIEAgV0CjmUskgAABAgQIECBAgAABAgTKCGg0y2iJJUCAAAECBAgQIECAAIFcAY1mLpEAAgQIECBAgAABAgQIECgjoNEsoyWWAAECBAgQIECAAAECBHIFNJq5RAIIECBAgAABAgQIECBAoIyARrOMllgCBAgQIECAAAECBAgQyBXQaOYSCSBAgAABAgQIECBAgACBMgIazTJaYgkQIECAAAECBAgQIEAgV0CjmUskgAABAgQIECBAgAABAgTKCGg0y2iJJUCAAAECBAgQIECAAIFcAY1mLpEAAgQIECBAgAABAgQIECgjoNEsoyWWAAECBAgQIECAAAECBHIFNJq5RAIIECBAgAABAgQIECBAoIyARrOMllgCBAgQIECAAAECBAgQyBXQaOYSCSBAgAABAgQIECBAgACBMgIazTJaYgkQIECAAAECBAgQIEAgV0CjmUskgAABAgQIECBAgAABAgTKCGg0y2iJJUCAAAECBAgQIECAAIFcAY1mLpEAAgQIECBAgAABAgQIECgjoNEsoyWWAAECBAgQIECAAAECBHIFNJq5RAIIECBAgAABAgQIECBAoIyARrOMllgCBAgQIECAAAECBAgQyBXQaOYSCSBAgAABAgQIECBAgACBMgIazTJaYgkQIECAAAECBAgQIEAgV0CjmUskgAABAgQIECBAgAABAgTKCGg0y2iJJUCAAAECBAgQIECAAIFcAY1mLpEAAgQIECBAgAABAgQIECgjoNEsoyWWAAECBAgQIECAAAECBHIFNJq5RAIIECBAgAABAgQIECBAoIyARrOMllgCBAgQIECAAAECBAgQyBXQaOYSCSBAgAABAgQIECBAgACBMgIazTJaYgkQIECAAAECBAgQIEAgV0CjmUskgAABAgQIECBAgAABAgTKCGg0y2iJJUCAAAECBAgQIECAAIFcAY1mLpEAAgQIECBAgAABAgQIECgjoNEsoyWWAAECBAgQIECglMD9+/fD6upqmJ+fDxMTEyH+99zcXHj48GF48803w9GjR0utTzABAs0Q0Gg2o06yJECAAAECBAg0TuDx48dZg7lz585w/PjxLP/l5eVw4MCBsH379vV/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2u7//e9PBl71L/ziFwdett+CKf6xyalYqf9l6a+LBW4Q9TsLfzHwsv0WTDGnoQx0kytNcY5vckitWVztipWaU3OdUqydnJo7n4plXm9UivOpXoHmbq1Uo3n37t2sybx48WLYtm1bNuorV66Ee/fuZWc1x+0nxYktp2KzjFNznYplXm9UivOpXoHmbk3titWOU3OdUqydnJo7n+6vfVQs+Q2ipl75vYGX7bdgivNpKAMdw5VW0mjeuHEjnD9/PmzZsmWsiFKc2HIqNsU4NdepWOb1RqU4n+oVaO7W1K5Y7Tg11ynF2snJfComUCwqxflULHNRlTSavc5oHj58mDABAgQIECBAgAABAgQIjIlA56GwecMp1Wj2ukczvrjVk2fzqP2eAAECBAgQIECAAAEC7RAo1Wh2Xm2yY8eO7J7MeM/m3NxcWFlZWX84UDvYjJIAAQIECBAgQIAAAQIEegmUajTjSjqvNFlbW8vWefPmTa82Mb8IECBAgAABAgQIECBAYF2gdKPJjgABAgQIECBAgAABAgQI9BPQaJofBAgQIECAAAECBAgQIFCpgEazUk4rI0CAAAECBAgQIECAAAGNpjlAgAABAgQIECBAgAABApUKaDQr5bQyAgQIECBAgAABAgQIENBomgMECBAgQIAAAQIECBAgUKmARrNSTisjQIAAAQIECBAgQIAAAY2mOUCAAAECBAgQIECAAAEClQpoNCvltDICBAgQIECAAAECBAgQ0GiaAwQIECBAgAABAgQIECBQqcD/A1DKggI4vG4hAAAAAElFTkSuQmCC"/>
+      <div id="irregularPulseBurdenChart" style="width: 90%; height: 150px; margin-bottom: 15px;">
+        <div class="canvasjs-chart-container" style="position: relative; text-align: left; cursor: auto;">
+          <canvas class="canvasjs-chart-canvas" width="922" height="150" style="position: absolute; user-select: none;"/>
+          <canvas class="canvasjs-chart-canvas" width="922" height="150" style="position: absolute; webkit-tap-highlight-color: transparent; user-select: none;"/>
+          <div class="canvasjs-chart-toolbar" style="position: absolute; right: 1px; top: 1px; border: 1px solid transparent;">
+          </div>
+          <div class="canvasjs-chart-tooltip"
+               style="position: absolute; height: auto; box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.1); z-index: 1000; pointer-events: none; display: none; border-radius: 5px;">
+            <div
+                style=" width: auto;height: auto;min-width: 50px;line-height: auto;margin: 0px 0px 0px 0px;padding: 5px;font-family: Calibri, Arial, Georgia, serif;font-weight: normal;font-style: italic;font-size: 14px;color: #000000;text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);text-align: left;border: 2px solid gray;background: rgba(255,255,255,.9);text-indent: 0px;white-space: nowrap;border-radius: 5px;-moz-user-select:none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;} ">
+              Sample Tooltip
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class="" id="irregularPulseBurdenChartImg"
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA5oAAACWCAYAAAC/3/dtAAACL0lEQVR4Xu3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAgwFx/gABLUDwewAAAABJRU5ErkJggg=="
+           style="width: 90%; height: 150px; margin-bottom: 15px;"/>
+      <img class="" id="irregularPulseBurdenChartImg"
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA5oAAACWCAYAAAC/3/dtAAACL0lEQVR4Xu3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAgwFx/gABLUDwewAAAABJRU5ErkJggg=="
+           style="width: 90%; height: 150px; margin-bottom: 15px;"/>
+    </div>
+    <div>
+      <div style="float: left; width: 10%; font-size: 14pt; display: inline-block; margin-top: 40px;">
+            <span>
+              HR
+            </span>
+        <br/>
+        <span>
+              [BPM]
+            </span>
+      </div>
+      <div id="hrChart" style="width: 90%; height: 150px;">
+      </div>
+    </div>
+  </div>
+  <!-- Distribution of Irregualr Pulse Duration -->
+  <div style="min-height: 280px;">
+    <div class="sectionTitle">
+      <p>
+        <b>
+          Distribution of Irregular Pulse Duration
+        </b>
+      </p>
+    </div>
+    <div>
+      <div id="numberOfDurationChart" style="width: 48%; height: 230px; float: left;">
+      </div>
+    </div>
+    <div>
+      <div id="sumOfDurationsChart" style="width: 48%; height: 230px; float: right;">
+      </div>
+    </div>
+  </div>
+  <!-- Timeline data for a day of the Maximum Irregular Pulse Burden : 01-Jan-2021 -->
+  <div>
+    <div class="sectionTitle">
+      <p>
+        <b>
+          Timeline data for a day of the Maximum Irregular Pulse Burden : 03-Jul-2021
+        </b>
+      </p>
+    </div>
+    <div>
+      <div class="selfCheck" style="vertical-align: middle; height: 35px; font-size: 15pt;">
+        <div style="text-align: left;">
+              <span style="font-weight: bold;">
+                  Self-check
+              </span>
+          <span class="nsr" style="margin-left: 94px;">
+              </span>
+          <span>
+                  NSR
+              </span>
+          <span class="afEpilsodeY" style="margin-left: 185px;">
+              </span>
+          <span>
+                  Irregular pulse
+              </span>
+        </div>
+      </div>
+      <div class="backgroundCheck" style="vertical-align: middle; height: 35px; font-size: 15pt; margin-bottom:10px;">
+        <div style="text-align: left;">
+              <span style="font-weight: bold;">
+                  Background-check
+              </span>
+          <span class="timelineColor_afEplisodeY mr-2" style="margin-left: 15px;">
+              </span>
+          <span>
+                  Irregular pulse Episode
+              </span>
+          <span class="timelineColor_analyzableY mr-2" style="margin-left: 15px;">
+              </span>
+          <span>
+                  Analyzable Time
+              </span>
+          <span class="timelineColor_analyzableN mr-2" style="margin-left: 15px;">
+              </span>
+          <span>
+                  Unanalyzable Time
+              </span>
+          <span class="timelineColor_noData mr-2" style="margin-left: 15px;">
+              </span>
+          <span>
+                  Not Wearing
+              </span>
+        </div>
+      </div>
+      <div id="timelineChart" style="width: 100%; height: 90px;">
+      </div>
+    </div>
+    <div>
+      <table id="analyzableTable" style="width: 100%; margin-top: 5px; border: 0px; font-size: 15pt; border-spacing: 0px;">
+        <tbody>
+        <tr style="background: #f5f5f5;height: 39px; ">
+          <td style="font-size: 15pt; padding-top: 2px; padding-bottom: 2px; padding-left: 30px;">
+            IP burden:
+            <b>
+              10.07%
+            </b>
+          </td>
+          <td style="font-size: 15pt; padding-top: 2px; padding-bottom: 2px; padding-left: 30px;">
+            HR Median:
+            <b>
+              57 BPM
+            </b>
+          </td>
+          <td style="font-size: 15pt; padding-top: 2px; padding-bottom: 2px; padding-left: 30px;">
+            Analyzable Time:
+            <b>
+              10hrs 30sec
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" style="padding-top: 10px; padding-left: 30px;">
+            Episode
+            <br/>
+            (Start Time/Duration)
+          </td>
+          <td valign="top" style="font-weight: bold; font-weight: normal; padding-left: 30px;">
+            <div id="dynamicTable">
+            </div>
+          </td>
+          <td valign="top" style="font-weight: bold; font-weight: normal; padding-left: 30px;">
+            <div id="dynamicTable1">
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="afStatisticsFooter">
+</div>
+<div style="width: 1024px; height: 30pt; margin-bottom: 5px; margin: auto; border-top: 2px solid #2ea7e0;">
+  <div style="width: 100%; font-size: 9pt; color: #595959; line-height: 10pt;">
+    <img alt="Logo Image" style="width: 60pt; height: 15pt; margin-top: 12.5px; margin-left: 20pt; margin-right: 16pt; float:left;"
+         src="https://skylabs-upload-picture.s3.ap-northeast-2.amazonaws.com/pdf-report-skylabs-logo.png"/>
+    <span style="float: left;margin-top: 6pt;">
+          Sky Labs, Inc.
+          <br/>
+           Confidential patient information
+        </span>
+    <span class="totalPageNum" style="float: right; margin-top: 15pt; margin-right: 5pt;">
+        </span>
+    <span style="float: right;margin-top: 15pt;">
+          2/
+        </span>
+    <span style="float: right;margin-top: 15pt; margin-right: 45pt;">
+          Version : 2021-03
+        </span>
+  </div>
+</div>
+<span
+    style="position: absolute; left: 0px; top: -20000px; padding: 0px; margin: 0px; border: none; white-space: pre; line-height: normal; font-family: Trebuchet MS, Helvetica, sans-serif; font-size: 10px; font-weight: normal; display: none;">
+      Mpgyi
+    </span>
+</body>
+</html>

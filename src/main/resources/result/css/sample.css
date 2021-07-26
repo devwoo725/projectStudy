@@ -1,0 +1,652 @@
+@page {
+  size: 1024px 1340px;
+  margin: 0cm 0cm 0cm 0cm;
+  -fs-flow-top: "header";
+  -fs-flow-bottom: "footer";
+
+  /*@bottom-right {*/
+  /*  content: "Seite " counter(page) " von " counter(pages);*/
+  /*  font-size: 9px;*/
+  /*}*/
+  /*@bottom-left {*/
+  /*  content: element(footer);*/
+  /*  font-size: 9px;*/
+  /*}*/
+  /*@top-left {*/
+  /*  font-size: 9px;*/
+  /*  content: element(header);*/
+  /*}*/
+}
+
+.body {
+  width: 1024px;
+  height: 1340px;
+  margin: auto;
+  font-family: Noto Sans KR, sans-serif !important;
+  padding-top: 7px;
+}
+
+.body .patientTable {
+  width: 507px;
+  border-spacing: 0px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-size: 13pt;
+}
+
+.body .patientTable td {
+  text-align: right;
+  padding-right: 10px;
+  background: #f2f2f2;
+  border: 1px solid #f2f2f2;
+}
+
+.body .patientTable th {
+  text-align: left;
+  padding-left: 10px;
+  border: 1px solid #f2f2f2;
+  border-right: hidden !important;
+  font-weight: normal;
+}
+
+.body .sectionTitle {
+  background: #2EA7E0;
+  margin-bottom: 10px;
+  text-align: center;
+  height: 29pt;
+}
+
+.body .sectionTitle p {
+  color: #FFFFFF;
+  font-size: 19pt;
+  font-weight: bold;
+  margin: 0px !important;
+}
+
+.body .contentBackgroundTable {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0px;
+  border-spacing: 0px;
+  padding-bottom: 15px;
+  width: 507px;
+}
+
+.body .contentBackgroundTable td {
+  text-align: right;
+  padding-right: 10px;
+  background: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  font-size: 13pt;
+}
+
+.body .contentBackgroundTable th {
+  text-align: left;
+  padding-left: 10px;
+  border: 1px solid #f2f2f2;
+  border-right: hidden !important;
+  font-size: 13pt;
+  font-weight: normal;
+}
+
+.body .contentSymptomTable {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0px;
+  border-spacing: 0px;
+  padding-bottom: 15px;
+  float: left;
+  height: 160px;
+  width: 507px;
+  font-size: 13pt;
+}
+
+.body .contentSymptomTable td {
+  padding-left: 10px;
+  background: #f2f2f2;
+  width: 300px;
+  border: 1px solid #f2f2f2;
+  font-size: 13pt;
+}
+
+.body .contentSymptomTable th {
+  text-align: left;
+  padding-left: 10px;
+  width: 200px;
+  border: 1px solid #f2f2f2;
+  border-right: hidden !important;
+  font-weight: normal;
+}
+
+.body .interpretation {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.body .symptom {
+  width: 100%;
+  height: 160px;
+  margin-bottom: 5px;
+  border: 1px solid;
+}
+
+.body .symptomTable {
+  width: 100%;
+  height: 140px;
+  margin-top: 5px;
+  font-size: 14pt;
+}
+
+.body .symptomTable td {
+  padding-right: 20px;
+}
+
+.body .symptomPage {
+  width: 1014px;
+  margin-left: 5px;
+  height: 1200px;
+  border: 1px solid;
+}
+
+.body .symptomPageTable {
+  font-size: 14pt;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.body .symptomPageTable td {
+  padding-right: 80px;
+}
+
+.body .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.body .ppgChart {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+#selfCheckMaximumHrEcgChart5 {
+  width: 32.5% !important
+}
+
+#selfCheckMaximumHrPpgChart5 {
+  width: 32.5% !important
+}
+
+#selfCheckMinimumHrEcgChart5 {
+  width: 32.5% !important
+}
+
+#selfCheckMinimumHrPpgChart5 {
+  width: 32.5% !important
+}
+
+.body .selfcheckPpgChart {
+  width: 100%;
+  height: 170px;
+}
+
+.body .ecgChart {
+  width: 100%;
+  height: 261px;
+}
+
+.body .good {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #6397b9;
+}
+
+.body .poor {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #d3d3d3;
+}
+
+.body .horizon {
+  width: 100%;
+  border-bottom: 1px solid #b3b3b3;
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+
+.selfCheck {
+  padding-top: 4px;
+  background-color: #f2f2f2;
+  padding-left: 10px;
+}
+
+.selfCheck .nsr {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #e6c84d;
+}
+
+.selfCheck .afEpilsodeY {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ac4b53;
+}
+
+.backgroundcheck {
+  padding-top: 4px;
+  padding-left: 10px;
+  margin-top: 5px;
+  background-color: #f2f2f2;
+}
+
+.body .timeLineTitle {
+  text-align: center;
+  font-size: 14pt;
+  margin-top: 10px;
+  width: 8%;
+  height: 60px;
+  float: left;
+  display: inline-block;
+}
+
+.body .timeLineChart {
+  margin-top: 10px;
+  width: 92%;
+  height: 90px;
+}
+
+.body .verticalLineTime1 {
+  display: inline-block;
+  font-size: 14pt;
+  position: absolute;
+  left: 74px;
+  top: 145px;
+  z-index: 9999;
+}
+
+.body .verticalLineTime2 {
+  display: inline-block;
+  font-size: 14pt;
+  position: absolute;
+  left: 302px;
+  top: 145px;
+  z-index: 9999;
+}
+
+.body .verticalLineTime3 {
+  display: inline-block;
+  font-size: 14pt;
+  position: absolute;
+  left: 533px;
+  top: 145px;
+  z-index: 9999;
+}
+
+.body .verticalLineTime4 {
+  display: inline-block;
+  font-size: 14pt;
+  position: absolute;
+  left: 761px;
+  top: 145px;
+  z-index: 9999;
+}
+
+.body .verticalLineTime5 {
+  display: inline-block;
+  font-size: 14pt;
+  position: absolute;
+  left: 975px;
+  top: 145px;
+  z-index: 9999;
+}
+
+.body .verticalLine1 {
+  display: inline-block;
+  border-left: 1px dashed;
+  border-color: #878787;
+  position: absolute;
+  left: 95px;
+  top: 175px;
+  height: 1090px;
+  z-index: 9999;
+}
+
+.body .verticalLine2 {
+  display: inline-block;
+  border-left: 1px dashed;
+  border-color: #878787;
+  position: absolute;
+  left: 326px;
+  top: 175px;
+  height: 1090px;
+  z-index: 9999;
+}
+
+.body .verticalLine3 {
+  display: inline-block;
+  border-left: 1px dashed;
+  border-color: #878787;
+  position: absolute;
+  left: 555px;
+  top: 175px;
+  height: 1090px;
+  z-index: 9999;
+}
+
+.body .verticalLine4 {
+  display: inline-block;
+  border-left: 1px dashed;
+  border-color: #878787;
+  position: absolute;
+  left: 783px;
+  top: 175px;
+  height: 1090px;
+  z-index: 9999;
+}
+
+.body .verticalLine5 {
+  display: inline-block;
+  border-left: 1px dashed;
+  border-color: #878787;
+  position: absolute;
+  left: 1012px;
+  top: 175px;
+  height: 1090px;
+  z-index: 9999;
+}
+
+.body .dynamicTimelineChartArea1 {
+  position: relative;
+  width: 100%;
+  height: 1338px;
+  display: block;
+  padding-top: 7px;
+}
+
+.body .dynamicTimelineChartArea2 {
+  position: relative;
+  width: 100%;
+  height: 1338px;
+  display: block;
+  padding-top: 7px;
+}
+
+.body .dynamicTimelineChartArea3 {
+  position: relative;
+  width: 100%;
+  height: 1338px;
+  display: block;
+  padding-top: 7px;
+}
+
+.body .dynamicBgMaximumHrChartArea {
+  position: relative;
+}
+
+.body .dynamicBgMinimumHrChartArea {
+  position: relative;
+}
+
+.body .dynamicMaximumHrSelfCheckChartArea1 {
+  width: 100%;
+  height: 1340px;
+  padding-top: 5px;
+}
+
+.body .dynamicMaximumHrSelfCheckChartArea2 {
+  width: 100%;
+  height: 1340px;
+  padding-top: 5px;
+}
+
+.body .dynamicMinimumHrSelfCheckChartArea1 {
+  width: 100%;
+  height: 1340px;
+  padding-top: 5px;
+}
+
+.body .dynamicMinimumHrSelfCheckChartArea2 {
+  width: 100%;
+  height: 1340px;
+  padding-top: 5px;
+}
+
+.timelineColor_analyzableN {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #27415c;
+}
+
+.timelineColor_analyzableY {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #b8e0e0;
+}
+
+.timelineColor_noData {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border: solid 1px #111;
+}
+
+.timelineColor_afEplisodeY {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #ac4b53;
+}
+
+.timelineColor_selfcheckY {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #3c62d2;
+}
+
+.ipBpColor {
+  margin-right: 5px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #ac4b53;
+}
+
+.hrMinColor {
+  margin-right: 5px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #99c9e0;
+}
+
+.hrAverageColor {
+  margin-right: 5px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #659ec2;
+}
+
+.hrMaxColor {
+  margin-right: 5px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #335375;
+}
+
+.body .hrTime {
+  font-size: 13pt;
+  margin-top: 20px;
+  width: 8%;
+  height: 120px;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+
+.body .hrChart {
+  margin-top: 30px;
+  width: 92%;
+  height: 130px;
+}
+
+.body .hrCharTimeline1 {
+  display: inline-block;
+  position: absolute;
+  left: 110px;
+}
+
+.body .hrCharTimeline2 {
+  display: inline-block;
+  position: absolute;
+  left: 545px;
+}
+
+.body .hrCharTimeline3 {
+  display: inline-block;
+  position: absolute;
+  left: 980px;
+}
+
+.afdataBody {
+  width: 1024px;
+  margin: auto;
+  font-family: Noto Sans KR, sans-serif !important;
+}
+
+.afdataBody .sectionTitle {
+  background: #2ea7e0;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  text-align: center;
+  height: 29pt;
+}
+
+.afdataBody .sectionTitle p {
+  color: #ffffff;
+  margin: 0px;
+  font-size: 18pt;
+  font-weight: bold;
+  padding-top: 2px;
+  margin-bottom: 30px;
+}
+
+.afdataBody .patientTable {
+  border: 0px;
+  width: 50%;
+}
+
+.afdataBody .patientTable td {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.afdataBody .patientTable th {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.afdataBody .symptom {
+  width: 100%;
+  height: 145px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border: 1px solid;
+}
+
+.afdataBody .symptomTable {
+  width: 100%;
+  height: 140px;
+  font-size: 14pt;
+}
+
+.afdataBody .symptomTable td {
+  padding-right: 20px;
+}
+
+.afdataBody .episode {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.afdataBody .episodeTable {
+  width: 100%;
+  height: 77px;
+  font-size: 15pt;
+}
+
+.symptomSpan {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.afdataBody .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.afdataBody .ppgChart {
+  width: 100%;
+  height: 140px;
+}
+
+.afdataBody .ecgChart {
+  width: 100%;
+  height: 230px;
+}
+
+.afdataBody [class *= "ppgChart5"] {
+  width: 32.5% !important
+}
+
+.afdataBody [class *= "ecgChart5"] {
+  width: 32.5% !important
+}
+
+.afdataBody .bgPpgChart {
+  width: 100%;
+  height: 270px;
+  margin-bottom: 20px;
+}
+
+.afdataBody .good {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #2babf0;
+}
+
+.afdataBody .poor {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #bfbfbf
+}
+
+.afdataBody .horizon {
+  width: 100%;
+  border-bottom: 1px solid #b3b3b3;
+  margin-bottom: 5px;
+  margin-top: 1px;
+}
+
+.dynamicChartAreaSub {
+  padding-top: 7px;
+}

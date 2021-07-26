@@ -22,9 +22,41 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    implementation 'com.openhtmltopdf:openhtmltopdf-core:1.0.9'
+    implementation 'com.openhtmltopdf:openhtmltopdf-pdfbox:1.0.9'
+    implementation 'com.openhtmltopdf:openhtmltopdf-rtl-support:1.0.9'
+    implementation 'com.openhtmltopdf:openhtmltopdf-svg-support:1.0.9'
+    implementation 'com.openhtmltopdf:openhtmltopdf-mathml-support:1.0.9'
+    implementation 'com.openhtmltopdf:openhtmltopdf-java2d:1.0.9'
+    implementation 'com.openhtmltopdf:openhtmltopdf-objects:1.0.9'
+    implementation 'com.openhtmltopdf:openhtmltopdf-latex-support:1.0.9'
+    implementation 'org.jsoup:jsoup:1.14.1'
+    implementation 'net.sourceforge.htmlunit:htmlunit:2.51.0'
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server
+    testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.141.59'
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver
+    testImplementation group: 'org.seleniumhq.selenium', name: 'htmlunit-driver', version: '2.50.0'
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
+    testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+
+    // https://mvnrepository.com/artifact/com.codeborne/phantomjsdriver
+    testImplementation group: 'com.codeborne', name: 'phantomjsdriver', version: '1.4.4'
+
+    testImplementation 'com.itextpdf:html2pdf:3.0.5'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
 }
